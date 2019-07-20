@@ -18,13 +18,16 @@ class CreateChecklistsTable extends Migration
             $table->integer('rack_id')->unsigned();     //Llaves Foranea
             $table->integer('equipo_id')->unsigned();   //Llaves Foranea
             $table->integer('user_id')->unsigned();     //Llaves Foranea
-            $table->string('sta_disco');
-            $table->string('sta_memoria');
-            $table->string('sta_fancouler');
-            $table->string('sta_powersuplay');
-            $table->string('sta_energia');
-            $table->string('sta_espancion_discos');
+            $table->string('disco');
+            $table->string('memoria');
+            $table->string('fancooler');
+            $table->string('powersupply');
+            $table->string('energia');
+            $table->string('expansion');
+            $table->string('controladora');
+            $table->string('sw_fibra');
             $table->string('observaciones');
+            $table->string('token');
             $table->foreign('rack_id')->references('id')->on('racks')->onDelete('cascade');     //Relaciones
             $table->foreign('equipo_id')->references('id')->on('equipos')->onDelete('cascade'); //Relaciones
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');     //Relaciones

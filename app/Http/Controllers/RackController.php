@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Rack;
 Use App\Equipo;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use App\Checklist;
 
 class RackController extends Controller
 {
@@ -35,16 +37,40 @@ class RackController extends Controller
 
     public function checklist(Request $request)
     {
-        // $r = $request->rack_id;
-        // $j = $request->equipo_id;
-        $resul = $request->All();
-        $j = $request->equipo_id;
+        
+        $token = $request->_token;
+        $equipo_id_rep = $request->equipo_id;
+    
+        $to = DB::table('checklists')->select('equipo_id')->where('token', $token)->get();
 
-        return back()->with('success','El '.$j.' fue actualizado con Exito!');
+        foreach ($to as $key) {
+           if ($key->equipo_id == $equipo_id_rep) {
+            return back()->with('danger','El Check de'.$key->equipo_id.'  esta repetido');   
+           }
+        }
+
+        $check = array(
+            
+        'rack_id'               => $request->rack_id,
+        'equipo_id'             => $request->equipo_id,
+        'user_id'               => $request->user_id,
+        'disco'                 => $request->disco,
+        'memoria'               => $request->memoria,
+        'fancooler'             => $request->fancooler,
+        'powersupply'           => $request->powersupply,
+        'energia'               => $request->energia,
+        'expansion'             => $request->expansion,
+        'controladora'          => $request->controladora,
+        'sw_fibra'              => $request->sw_fibra,
+        'observaciones'         => $request->observaciones,
+        'token'                 => $token
         
+        );
+
+    Checklist::create($check);
         
-        
-       
+        $equipo = $request->equipo_id;
+        return back()->with('success','El Check de'.$equipo.'  fue actualizado con Exito!');   
     }
 
 

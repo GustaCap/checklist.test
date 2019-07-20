@@ -10,7 +10,7 @@ class Checklist extends Model
 
     protected $fillable = [
 
-        'rack_id','equipo_id','user_id','sta_disco','sta_memoria','sta_fancouler','sta_powersuplay','sta_energia','sta_espacion_discos','observaciones'
+        'rack_id','equipo_id','user_id','disco','memoria','fancooler','powersupply','energia','expansion','controladora','sw_fibra','observaciones','token'
 
     ];
 

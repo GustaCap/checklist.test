@@ -23,7 +23,7 @@ Route::get('/racks', 'RackController@listar_rack')->name('listar-rack');
 
 Route::get('/equipos-racks{id}', 'RackController@equipos_rack')->name('equipos-rack');
 
-Route::get('/checklist', 'RackController@checklist')->name('checklist');
+Route::POST('/checklist', 'RackController@checklist')->name('checklist');
 
 
 

@@ -1,11 +1,31 @@
 @extends('layouts.app')
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('input[type=checkbox]').live('click', function(){
+      var parent = $(this).parent().attr('id');
+      $('#'+parent+' input[type=checkbox]').removeAttr('checked');
+      $(this).attr('checked', 'checked');
+      });
+  });
+  </script>
 
 @section('content')
 <div class="container">
-        
+{{--          
         @if ($message = Session::get('success'))
 
         <div class="alert alert-success alert-block">
+        
+            <button type="button" class="close" data-dismiss="alert">×</button>	
+        
+                <strong>{{ $message }}</strong>
+        
+        </div>
+        
+        @endif
+        @if ($message = Session::get('danger'))
+
+        <div class="alert alert-danger alert-block">
         
             <button type="button" class="close" data-dismiss="alert">×</button>	
         
@@ -19,10 +39,12 @@
                       <tr>
                         <th scope="col">rack</th>
                         <th scope="col">equipo</th>
+                        <th scope="col">usuario</th>
+
                         <th scope="col">Disco</th>
                         <th scope="col">Memoria</th>
                         <th scope="col">Fancoluer</th>
-                        <th scope="col">Powersuplay</th>
+                        <th scope="col">powersupply</th>
                         <th scope="col">Energia</th>
                         <th scope="col">Espancion</th>
                     
@@ -32,108 +54,154 @@
                       </tr>
                     </thead>
                     @foreach ($equipos as $item)
-                    <form method="GET" action="{{ route('checklist') }}">
+                    <form method="POST" action="{{ route('checklist') }}">
                             @csrf
                     <tbody>
                       <tr>   
                         <td>   
                         @foreach ($rack as $itemrack)
+                        @php
+                            $rack_id = $itemrack->id;
+                        @endphp
                         {{ $itemrack->descripcion }}                      
-                        <input type="hidden" class="form-control" id="rack_id" name="rack_id" value="{{ $itemrack->id }}">
+                        <input type="hidden" class="form-control" id="rack_id" name="rack_id" value="{{ $rack_id }}">
                         @endforeach
                         </td>
                         <td>
+                          @php
+                              $equipo_id = $item->id;
+                          @endphp
                         {{ $item->nombre }}
-                        <input type="hidden" class="form-control" id="equipo_id" name="equipo_id" value="{{ $item->id }}">
+                        <input type="hidden" class="form-control" id="equipo_id" name="equipo_id" value="{{ $equipo_id }}">
+                        
                         </td>
+
+                        <td>
+                            <div class="form-check">
+                                    <label class="form-check-label" for="user_id">
+                                      @php
+                                        $user_id = auth()->user()->id;
+                                      @endphp
+                                    <input type="text" class="form-control" id="user_id" name="user_id" value="{{ $user_id }}" readonly>
+                                    </label>
+                                  </div>
+                                  
+                    </td>
+
+                       
+
                         <td>
                                 <div class="form-check">
-                                        <label class="form-check-label" for="sta_disco">
-                                          <input type="radio" class="form-check-input" id="sta_disco" name="sta_disco" value="1" checked>ok
+                                    <input type="radio" class="form-check-input" id="disco" name="disco" value="1" >
+                                        <label class="form-check-label" for="disco">ok</label>
+                                          </div>
+                                      <div class="form-check">
+                                        <label class="form-check-label" for="disco">
+                                          <input type="radio" class="form-check-input" id="disco" name="disco" value="2">Falla
+                                        </label>
+                                      </div>
+                        </td>
+
+
+                           
+
+                        <td>
+                                <div class="form-check">
+                                        <label class="form-check-label" for="memoria">
+                                          <input type="radio" class="form-check-input" id="memoria" name="memoria" value="1" checked>ok
                                         </label>
                                       </div>
                                       <div class="form-check">
-                                        <label class="form-check-label" for="sta_disco">
-                                          <input type="radio" class="form-check-input" id="sta_disco" name="sta_disco" value="2">Falla
+                                        <label class="form-check-label" for="memoria">
+                                          <input type="radio" class="form-check-input" id="memoria" name="memoria" value="2">Falla
                                         </label>
                                       </div>
                         </td>
 
                         <td>
                                 <div class="form-check">
-                                        <label class="form-check-label" for="sta_memoria">
-                                          <input type="radio" class="form-check-input" id="sta_memoria" name="sta_memoria" value="1" checked>ok
+                                        <label class="form-check-label" for="fancooler">
+                                          <input type="radio" class="form-check-input" id="fancooler" name="fancooler" value="1" checked>ok
                                         </label>
                                       </div>
                                       <div class="form-check">
-                                        <label class="form-check-label" for="sta_memoria">
-                                          <input type="radio" class="form-check-input" id="sta_memoria" name="sta_memoria" value="2">Falla
+                                        <label class="form-check-label" for="fancooler">
+                                          <input type="radio" class="form-check-input" id="fancooler" name="fancooler" value="2">Falla
                                         </label>
                                       </div>
                         </td>
 
                         <td>
                                 <div class="form-check">
-                                        <label class="form-check-label" for="sta_fancouler">
-                                          <input type="radio" class="form-check-input" id="sta_fancouler" name="sta_fancouler" value="1" checked>ok
+                                        <label class="form-check-label" for="powersupply">
+                                          <input type="radio" class="form-check-input" id="powersupply" name="powersupply" value="1" checked>ok
                                         </label>
                                       </div>
                                       <div class="form-check">
-                                        <label class="form-check-label" for="sta_fancouler">
-                                          <input type="radio" class="form-check-input" id="sta_fancouler" name="sta_fancouler" value="2">Falla
+                                        <label class="form-check-label" for="powersupply">
+                                          <input type="radio" class="form-check-input" id="powersupply" name="powersupply" value="2">Falla
                                         </label>
                                       </div>
                         </td>
 
                         <td>
                                 <div class="form-check">
-                                        <label class="form-check-label" for="sta_powersuplay">
-                                          <input type="radio" class="form-check-input" id="sta_powersuplay" name="sta_powersuplay" value="1" checked>ok
+                                        <label class="form-check-label" for="energia">
+                                          <input type="radio" class="form-check-input" id="energia" name="energia" value="1" checked>ok
                                         </label>
                                       </div>
                                       <div class="form-check">
-                                        <label class="form-check-label" for="sta_powersuplay">
-                                          <input type="radio" class="form-check-input" id="sta_powersuplay" name="sta_powersuplay" value="2">Falla
+                                        <label class="form-check-label" for="energia">
+                                          <input type="radio" class="form-check-input" id="energia" name="energia" value="2">Falla
                                         </label>
                                       </div>
                         </td>
 
                         <td>
                                 <div class="form-check">
-                                        <label class="form-check-label" for="sta_energia">
-                                          <input type="radio" class="form-check-input" id="sta_energia" name="sta_energia" value="1" checked>ok
+                                        <label class="form-check-label" for="expansion">
+                                          <input type="radio" class="form-check-input" id="expansion" name="expansion" value="1" checked>ok
                                         </label>
                                       </div>
                                       <div class="form-check">
-                                        <label class="form-check-label" for="sta_energia">
-                                          <input type="radio" class="form-check-input" id="sta_energia" name="sta_energia" value="2">Falla
+                                        <label class="form-check-label" for="expansion">
+                                          <input type="radio" class="form-check-input bg-success" id="expansion" name="expansion" value="2">Falla
                                         </label>
                                       </div>
                         </td>
 
                         <td>
-                                <div class="form-check">
-                                        <label class="form-check-label" for="sta_espancion_discos">
-                                          <input type="radio" class="form-check-input" id="sta_espancion_discos" name="sta_espancion_discos" value="1" checked>ok
-                                        </label>
-                                      </div>
-                                      <div class="form-check">
-                                        <label class="form-check-label" for="sta_espancion_discos">
-                                          <input type="radio" class="form-check-input bg-success" id="sta_espancion_discos" name="sta_espancion_discos" value="2">Falla
-                                        </label>
-                                      </div>
+                            <div class="form-check">
+                                    <label class="form-check-label" for="controladora">
+                                      <input type="radio" class="form-check-input" id="controladora" name="controladora" value="1" checked>ok
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <label class="form-check-label" for="controladora">
+                                      <input type="radio" class="form-check-input bg-success" id="controladora" name="controladora" value="2">Falla
+                                    </label>
+                                  </div>
                         </td>
 
-                        {{-- <td>
-                                <div class="form-check">
-                                        <input type="text" class="form-control" id="token" name="" value="{{ \App\Http\Controllers\RackController::generarCodigo() }}" readonly>
-                                      </div>
-                        </td> --}}
+                        <td>
+                            <div class="form-check">
+                                    <label class="form-check-label" for="sw_fibra">
+                                      <input type="radio" class="form-check-input" id="sw_fibra" name="sw_fibra" value="1" checked>ok
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <label class="form-check-label" for="sw_fibra">
+                                      <input type="radio" class="form-check-input bg-success" id="sw_fibra" name="sw_fibra" value="2">Falla
+                                    </label>
+                                  </div>
+                        </td>
+
+                    
 
                         <td>
                                 <div class="form-group">
                                         <label for="observaciones">Observaciones:</label>
-                                        <textarea class="form-control" rows="3" id="comment" name="observaciones"></textarea>
+                                        <textarea class="form-control" rows="3" id="comment" name="observaciones" required></textarea>
                                       </div>    
                         </td>
                         <td>
@@ -143,7 +211,20 @@
                     </tbody>
                 </form>
                     @endforeach
-                  </table>    
+                  </table>     --}}
+
+
+
+                  
+                  <div class="box1">
+                    <input type="checkbox" id="prueba">
+                    <label for="prueba">xxx</label>
+                  </div>
+
+                  <div class="box2">
+                      <input type="checkbox" id="prueba2">
+                      <label for="prueba2">xxx</label>
+                    </div>
         
 </div>
 @endsection
