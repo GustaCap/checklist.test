@@ -18,11 +18,11 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{asset('fonts/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{asset('fonts/css/fontawesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('fonts/css/regular.min.css')}}">
-    <link rel="stylesheet" href="{{asset('fonts/css/solid.min.css')}}">
-    <link rel="stylesheet" href="{{asset('fonts/css/brands.min.css')}}">
+    {{--  <linkrel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  --}}
+    <link rel="stylesheet" href="{{asset('fonts/css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{asset('fonts/css/regular.css')}}">
+    <link rel="stylesheet" href="{{asset('fonts/css/solid.css')}}">
+    <link rel="stylesheet" href="{{asset('fonts/css/brands.css')}}">
     
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">

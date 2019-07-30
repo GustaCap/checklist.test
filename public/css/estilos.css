@@ -99,14 +99,6 @@ background-position:center center;
 .transparencia{
   background-color: #ffffff4d;
   border: 1px solid #fff;
-
- 
-    /* color: #495057;
-    background-color: #ffffff4d;
-    border-color: #fff;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgb(255, 255, 255); */
-
 }
 
 .focus:focus{
@@ -118,98 +110,49 @@ background-position:center center;
 }
 
 .color1{
-  background: #c0c0c0;
-  height: 350px;
+  
+  background: #9c9c9c;
+  height: 20vh;
+  
 }
-.color1:hover{
-  background: #c0c0c0;
-  width: 350px;
+
+.color1 a{
+    margin-top: 20vh;
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 2.5em;
 }
+
+.texto1{
+  margin-top: 10px;
+}
+
 
 .color2{
   background: aqua;
-  height: 200px;
+  height: 20vh;
+  
 }
-.color22{
-  background: #495057;
-  height: 200px;
+
+.color2 a{
+  color: #fff;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: 2.5em;
 }
 
 .color3{
   background: #4598eb;
-  height: 400px;
+  height: 20vh;
 }
 
-.color3:hover{
-  background: #4598eb;
-  height: 400px;
- 
-  transition: all .9s;
-  
+.color4{
+  background: #395a7c;
+  height: 20vh;
 }
 
-/* .color2:hover{
-  
-  background: #ff912a;
-  height: 250px;
-  margin-left: 50px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  float: right;
-  
-  transition: all .3s;
 
-} */
-
-/* .color2:hover label{
-  
-  font-size: 150px;
-  color: #fff;
-  transition: all .6s;
-  
-} */
-
-.color1 label{
-  float: left;
-                transform: rotate(90deg);
-                transform-origin: left top 0;
-                margin-left: 100px;
-                padding: 10px;
-                /* background-color: rgba(37, 34, 34, 0.3); */
-                opacity: 0.9;
-                font-size: 5em;
-                color: #FFF;
-                text-transform: uppercase;
-
-}
-
-.color2 label{
-  float: left;
-                transform: rotate(90deg);
-                transform-origin: left top 0;
-                margin-left: 100px;
-                padding: 10px;
-                /* background-color: rgba(37, 34, 34, 0.3); */
-                opacity: 0.9;
-                font-size: 5em;
-                color: rgb(0, 0, 0);
-                text-transform: uppercase;
-
-}
-
-.color22 label{
-  float: left;
-                transform: rotate(90deg);
-                transform-origin: left top 0;
-                margin-left: 580px;
-                padding: 10px;
-                /* background-color: rgba(37, 34, 34, 0.3); */
-                opacity: 0.9;
-                font-size: 2em;
-                color: rgb(0, 0, 0);
-                text-transform: uppercase;
-
-}
 
 
 /* .m-b-md {
@@ -381,10 +324,101 @@ label
      /* transform: rotate(40deg); */
 }
 
-/* hoy aprendi que es un TOLONDRON */
+.mar-top{
+  margin-top: 4em;
+}
+
+.wh{
+  width: 100%;
+  /* height: 100%; */
+  border-radius: 10px;
+}
+
+.bg{
+  background-image: url('https://hookagency.com/wp-content/uploads/2015/11/hazemaster-gray-gradient-ui-background.jpg');
+background-repeat:no-repeat;
+background-size:contain;
+background-position:center center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+border: none;
+}
+.bg:hover{
+  -webkit-box-shadow: -17px 17px 42px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: -17px 17px 42px -5px rgba(0,0,0,0.75);
+  box-shadow: -17px 17px 42px -5px rgba(0,0,0,0.75);
+}
+
+/* .num{
+  background: #f62f23;
+  width: 60%;
+  height: 6em;
+  margin-top: 8px;
+  margin-left: 10px;
+  border-radius: 10px;
+} */
+
+.num p{
+  color: #007bff;
+  font-size: 7em;
+  margin-top: -23px;
+  margin-left: 20px;
+  text-shadow: 5px 2px 2px #000000;
+  
+}
+
+.ra a{
+  font-size: 2.5rem;
+  color: #000000;
+text-decoration: none;
+background-color: transparent;
+text-shadow: 3px 2px 2px #ffffff;
+}
+
+.ra p{
+  color: #fff;
+}
+
+.aa a{
+  font-size: 2.5rem;
+  color: #000000;
+text-decoration: none;
+background-color: transparent;
+text-shadow: 3px 2px 2px #ffffff;
+}
+
+.aa p{
+  color: #fff;
+}
+
+.ac a{
+  font-size: 2.5em;
+  color: #000000;
+text-decoration: none;
+background-color: transparent;
+text-shadow: 3px 2px 2px #ffffff;
+}
+
+.ac p{
+  color: #fff;
+}
+
+.in a{
+  font-size: 2.5em;
+  color: #000000;
+text-decoration: none;
+background-color: transparent;
+text-shadow: 3px 2px 2px #ffffff;
+}
+
+.in p{
+  color: #fff;
+  
+}
 
 
 
 
-/* prueba 2 */
+
+
 

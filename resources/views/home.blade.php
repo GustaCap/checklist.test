@@ -4,42 +4,56 @@
 @section('content')
 
 <div class="container">
-        {{--  <div class="flex-center full-height">
-                <div class="content mx-auto">  --}}
-                    <div class="row">
-                        <div class="col-md-12 color1">
-                                <label class="prueba" for="">Racks</label> 
+        <div class="flex-center mar-top">
+            <div class="row justify-content-center">
+                <div class="col-md-3 col-sm-10">
+                    <div class="card wh bg">
+                        {{--  <div class="num">
+                           <p>1</p>
+                        </div>  --}}
+                        <div class="card-body ra">
+                            <a href="{{ route('listar-rack') }}">Rack</a>
+                            <p>Inspección servidores por rack</p>
                         </div>
                     </div>
-                    <div class="row">
-                            <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="col-md-12 color2">
-                                            <label for="">A/A</label>   
+                </div>
+                <div class="col-md-3 col-sm-10">
+                        <div class="card wh bg">
+                                {{--  <div class="num">
+                                        <p>2</p>
+                                     </div>  --}}
+                                     <div class="card-body aa">
+                                            <a href="">A/A</a>
+                                            <p>Inspección de aires acondicionados</p>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                            <div class="col-md-12 color22">
-                                                    <label for="">Accesorios</label>
-                                            </div>
-                                        </div>
-                            </div>
-                            <div class="col-md-6 color3">
-                                    <label for="">Ingresos</label>
-                            </div>
-                        </div>
 
-                    {{--  <div class="title m-b-md">
-                        CheckList DPD
+                        </div>
                     </div>
-    
-                    <div class="links">
-                        <a href="{{ route('listar-rack') }}">Rack</a>
-                        <a href="https://laracasts.com">A/A</a>
-                        <a href="https://laravel-news.com">Accesorios</a>
-                        <a href="https://blog.laravel.com">Ingresos</a>
-                    </div>  --}}
-                {{--  </div>
-            </div>  --}}
+                    <div class="col-md-3 col-sm-10">
+                            <div class="card wh bg">
+                                    {{--  <div class="num">
+                                            <p>3</p>
+                                         </div>  --}}
+                                         <div class="card-body ac">
+                                                <a href="">Accesorios</a>
+                                                <p>Inspección de lamparas, linternas, llaves de rack, etc.</p>
+                                            </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-10">
+                                <div class="card wh bg">
+                                        {{--  <div class="num">
+                                                <p>4</p>
+                                             </div>  --}}
+                                             <div class="card-body in">
+                                                    <a href="">Ingreso</a>
+                                                    <p>Registro de ingresos al DataCenter</p>
+                                                </div>
+                                </div>
+                            </div>
+            </div>
+        </div>
+              
 </div>
+{{--  <a href="{{ route('listar-rack') }}">Rack</a>  --}}
 @endsection
